@@ -1,12 +1,12 @@
 <template>
   <div class="single-post-page">
     <section class="post">
-      <h1>Title of the Post</h1>
+      <h1>{{ loadedPost.title }}</h1>
       <div class="post-details">
-        <div>Last updateed : XXX</div>
-        <div>written by : XXX</div>
+        <div>Last updateed : {{ loadedPost.updatedDate }}</div>
+        <div>written by : {{ loadedPost.author }}</div>
       </div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, optio temporibus laudantium reiciendis ipsum cumque quos placeat ratione maiores id cum! Consequatur quo, assumenda commodi quia temporibus soluta dignissimos minus?</p>
+      <p>{{ loadedPost.content }}</p>
     </section>
     <section class="post-feedback">
       <p>Let me know what you think about this post</p>
@@ -17,7 +17,21 @@
 
 <script>
   export default {
-
+    asyncData(context, callback) {
+      setTimeout(() => {
+        callback(null, {
+          loadedPost: {
+            id: '1',
+            title: "First Post (ID: " + context.route.params.id +  " )",
+            previewText: 'This is post',
+            author: 'Takahisa',
+            updatedDate: new Date(),
+            content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, optio temporibus laudantium reiciendis ipsum cumque quos placeat ratione maiores id cum! Consequatur quo, assumenda commodi quia temporibus soluta dignissimos minus?',
+            thumbnail: 'https://www.photolibrary.jp/mhd3/img547/450-20171015133637110801.jpg',
+          }
+        })
+      },1000)
+    },
   }
 </script>
 

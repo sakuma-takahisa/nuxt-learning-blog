@@ -13,13 +13,9 @@ export default {
   components: {
     PostList
   },
-  data() {
-    return {
-      loadedPosts: [
-        {id: '1', title: 'First Post', previewText: 'This is post', thumbnail: 'https://www.photolibrary.jp/mhd3/img547/450-20171015133637110801.jpg'},
-        {id: '2', title: 'Secound Post', previewText: 'This is post', thumbnail: 'https://www.photolibrary.jp/mhd3/img547/450-20171015133637110801.jpg'},
-        {id: '3', title: 'Third Post', previewText: 'This is post', thumbnail: 'https://www.photolibrary.jp/mhd3/img547/450-20171015133637110801.jpg'},
-      ]
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts
     }
   }
 }
