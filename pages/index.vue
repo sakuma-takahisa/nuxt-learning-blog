@@ -9,6 +9,7 @@
 
 <script>
 import PostList from '@/components/Posts/PostList'
+
 export default {
   components: {
     PostList
@@ -52,7 +53,4 @@ export default {
     font-size: 2rem;
   }
 }
-
-
-
 </style>

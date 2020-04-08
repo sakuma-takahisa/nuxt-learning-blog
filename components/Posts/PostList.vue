@@ -7,8 +7,8 @@
       :is-admin="isAdmin"
       :thumbnail="post.thumbnail"
       :title="post.title"
-      :previewText="post.previewText" />
-
+      :previewText="post.previewText"
+    />
   </section>
 </template>
 
@@ -40,5 +40,4 @@ export default {
   align-items: center;
   justify-content: center;
 }
-
 </style>

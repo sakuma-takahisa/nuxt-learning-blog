@@ -11,28 +11,24 @@
     <section class="post-feedback">
       <p>Let me know what you think about this post</p>
     </section>
-
   </div>
 </template>
 
 <script>
-  export default {
-    asyncData(context, callback) {
-      setTimeout(() => {
-        callback(null, {
-          loadedPost: {
-            id: '1',
-            title: "First Post (ID: " + context.route.params.id +  " )",
-            previewText: 'This is post',
-            author: 'Takahisa',
-            updatedDate: new Date(),
-            content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, optio temporibus laudantium reiciendis ipsum cumque quos placeat ratione maiores id cum! Consequatur quo, assumenda commodi quia temporibus soluta dignissimos minus?',
-            thumbnail: 'https://www.photolibrary.jp/mhd3/img547/450-20171015133637110801.jpg',
-          }
-        })
-      },1000)
-    },
+import axios from 'axios'
+
+export default {
+  asyncData(context) {
+    return axios
+      .get('https://nuxt-learning-692e0.firebaseio.com/post/' + context.params.id + '.json')
+      .then(res => {
+        return {
+          loadedPost: res.data
+        }
+      })
+      .catch(e => context.error(e))
   }
+}
 </script>
 
 <style lang="scss" scoped>

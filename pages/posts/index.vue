@@ -6,6 +6,7 @@
 
 <script>
 import PostList from '@/components/Posts/PostList'
+
 export default {
   components: {
     PostList
@@ -24,6 +25,4 @@ export default {
   justify-content: center;
   align-items: center;
 }
-
-
 </style>
